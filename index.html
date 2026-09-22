@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planet — Найди своё величие</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section id="hero">
+  <nav id="nav">
+    <div class="nikeLogo"><svg width="30" height="18" viewBox="0 0 109 64" style="vertical-align:-4px;margin-right:6px;" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M108.6 3.2c-4.7 2-9.2 3.9-13.9 5.8L10.3 42.6c-3.5 1.4-7 2.8-7.7 3-1.8.5-2.6-.6-2.1-2.2.3-1 1-2 2.4-3.4 2.6-2.7 5.7-4.7 21.8-14 13.4-7.8 30.6-16.5 41.6-21.1C74.9 1.4 82.6-.5 87.9.1c3.5.4 6.8 1.8 9.6 4 3.9 2.9 7.5 5.8 11.1-.9z"/></svg>NIKE</div>
+    <div class="navlinks"><a href="#hero">Главная</a><a href="#collection">Продукция</a><a href="#footer">Контакты</a></div>
+    <button class="place-order" id="orderBtn">Оформить заказ <span>➤</span></button>
+  </nav>
+
+  <div id="pills">
+    <button class="pill active">Продукция</button>
+    <button class="pill inactive">Контакты</button>
+  </div>
+
+  <div id="heroBody">
+    <div id="leftText">
+      <h1>Найди своё<br>величие</h1>
+      <p>Создано для скорости и уверенности. Каждая пара сочетает премиальные материалы и смелый дизайн. Разработано для комфорта — создано для движения.</p>
+      <div class="hint">👆 Нажмите на кроссовок — цвет изменится</div>
+    </div>
+
+    <div id="centerStage">
+      <div id="wordWrap">
+        <div class="word" id="w0">Стиль</div>
+        <div class="word" id="w1">Сила</div>
+        <div class="word" id="w2">Энергия</div>
+      </div>
+      <div id="shoeShadow"></div>
+      <div id="splats"></div>
+      <div id="shoeWrap" class="floating">
+        <img id="shoeImg" src="assets/shoe-purple.png" alt="Nike Air Jordan 1">
+      </div>
+    </div>
+
+    <div id="rightPanel">
+      <div class="label">Выберите цвет</div>
+      <div class="colorRow">
+        <button class="dot purple selected" data-idx="0"></button>
+        <button class="dot red" data-idx="1"></button>
+        <button class="dot orange" data-idx="2"></button>
+      </div>
+      <div class="sizeRow">
+        <button class="size active">43</button>
+        <button class="size">45</button>
+        <button class="size">46</button>
+      </div>
+      <div class="colorName" id="colorName">Court Purple</div>
+    </div>
+  </div>
+
+  <div id="bottomRow">
+    <div class="socials"><span>◎</span><span>▤</span><span>◐</span><span>Be</span></div>
+    <div class="divider"><div class="line"></div><span>Выберите размер</span><div class="line"></div></div>
+    <a class="see-all" href="#collection">Вся коллекция ↗</a>
+  </div>
+</section>
+
+<section id="order">
+  <div class="orderWrap">
+    <div class="orderPreview" id="orderPreview">
+      <img id="orderShoeImg" src="" alt="Nike Air Jordan 1">
+      <div class="opName" id="orderColorName">Court Purple</div>
+      <div class="opPrice">62 000 ₸</div>
+    </div>
+    <form class="orderForm" id="orderForm">
+      <h2>Оформить заказ</h2>
+      <p>Air Jordan 1 High OG — выберите размер, количество и укажите контактные данные для доставки.</p>
+
+      <div class="formRow">
+        <label>Размер (US)</label>
+        <div class="sizePicker" id="orderSizePicker">
+          <button type="button" data-size="40">40</button>
+          <button type="button" data-size="41">41</button>
+          <button type="button" data-size="42">42</button>
+          <button type="button" data-size="43" class="active">43</button>
+          <button type="button" data-size="44">44</button>
+          <button type="button" data-size="45">45</button>
+          <button type="button" data-size="46">46</button>
+        </div>
+      </div>
+
+      <div class="formRow">
+        <label>Количество</label>
+        <div class="qtyPicker">
+          <button type="button" id="qtyMinus">−</button>
+          <span id="qtyValue">1</span>
+          <button type="button" id="qtyPlus">+</button>
+        </div>
+      </div>
+
+      <div class="formRow">
+        <label>Имя и фамилия</label>
+        <input type="text" id="orderName" placeholder="Например, Нурбол Ахметов">
+        <div class="errText" id="errName">Пожалуйста, укажите имя</div>
+      </div>
+
+      <div class="formRow">
+        <label>Телефон</label>
+        <input type="tel" id="orderPhone" placeholder="+7 7__ ___ __ __">
+        <div class="errText" id="errPhone">Укажите корректный номер телефона</div>
+      </div>
+
+      <div class="formRow">
+        <label>Адрес доставки</label>
+        <input type="text" id="orderAddress" placeholder="Город, улица, дом, квартира">
+        <div class="errText" id="errAddress">Укажите адрес доставки</div>
+      </div>
+
+      <button type="submit" class="orderSubmit" id="orderSubmitBtn">Подтвердить заказ</button>
+      <div class="orderSuccess" id="orderSuccess" hidden></div>
+    </form>
+  </div>
+</section>
+
+<section id="trending">
+  <h3>В тренде</h3>
+  <div class="trendRow">
+    <button class="trendPill active" data-product="jordan1">Air Jordan 1</button>
+    <button class="trendPill" data-product="dunk">Dunk Low</button>
+    <button class="trendPill" data-product="af1">Air Force 1</button>
+    <button class="trendPill" data-product="airmax">Air Max</button>
+    <button class="trendPill" data-product="jordanRetro">Jordan Retro</button>
+    <button class="trendPill" data-product="totalOrange">Total Orange</button>
+    <button class="trendPill" data-product="courtPurple">Court Purple</button>
+    <button class="trendPill" data-target="order">Сделать заказ</button>
+  </div>
+</section>
+
+<section id="collection">
+  <div class="collTitleWrap">
+    <div class="kicker">Nike × Planet Store</div>
+    <h2>Коллекция Nike</h2>
+    <p>Легендарные силуэты, которые изменили историю кроссовок — от баскетбольных площадок до улиц города.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="imgWrap" style="background:radial-gradient(circle at 35% 30%,#6a3fc7,#2a0f5e);"><img src="assets/shoe-purple.png" style="object-fit:contain;padding:22px;" alt="Air Jordan 1 Court Purple"></div>
+      <div class="info">
+        <div class="tag">Air Jordan 1</div>
+        <h3>Air Jordan 1 High OG «Court Purple»</h3>
+        <p class="desc">Культовый силуэт в бело-фиолетовой расцветке. Премиальная кожа и узнаваемый значок Wings на щиколотке.</p>
+        <button class="more" data-product="courtPurple">Подробнее →</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgWrap" style="background:radial-gradient(circle at 35% 30%,#c22a44,#5c101f);"><img src="assets/shoe-red.png" style="object-fit:contain;padding:22px;" alt="Air Jordan 1 Varsity Red"></div>
+      <div class="info">
+        <div class="tag">Air Jordan 1</div>
+        <h3>Air Jordan 1 High OG «Varsity Red»</h3>
+        <p class="desc">Дерзкое сочетание красного, чёрного и белого — вдохновлено формой Chicago Bulls и наследием Джордана.</p>
+        <button class="more" data-product="varsityRed">Подробнее →</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgWrap" style="background:radial-gradient(circle at 35% 30%,#e07a1f,#6e350a);"><img src="assets/shoe-orange.png" style="object-fit:contain;padding:22px;" alt="Air Jordan 1 Total Orange"></div>
+      <div class="info">
+        <div class="tag">Air Jordan 1</div>
+        <h3>Air Jordan 1 High OG «Total Orange»</h3>
+        <p class="desc">Яркая и энергичная расцветка, которая выделяется в любой толпе — смелый выбор для смелых людей.</p>
+        <button class="more" data-product="totalOrange">Подробнее →</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgWrap" style="background:radial-gradient(circle at 35% 30%,#2c5aa0,#0d1f3d);"><img src="assets/shoe-blue.png" style="object-fit:contain;padding:22px;" alt="Air Jordan 1 Royal Blue"></div>
+      <div class="info">
+        <div class="tag">Air Jordan 1</div>
+        <h3>Air Jordan 1 High OG «Royal Blue»</h3>
+        <p class="desc">Глубокий синий тон с чистым белым верхом — сдержанная классика на каждый день.</p>
+        <button class="more" data-product="royalBlue">Подробнее →</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgWrap" style="background:radial-gradient(circle at 35% 30%,#3a3a3a,#0a0a0a);"><img src="assets/shoe-black.png" style="object-fit:contain;padding:22px;" alt="Air Jordan 1 Black Toe"></div>
+      <div class="info">
+        <div class="tag">Air Jordan 1</div>
+        <h3>Air Jordan 1 High OG «Black»</h3>
+        <p class="desc">Минималистичная монохромная версия — универсальная пара, которая подходит под любой образ.</p>
+        <button class="more" data-product="blackToe">Подробнее →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="membership">
+  <h2>Стань частью Nike Membership</h2>
+  <p>Ранний доступ к новинкам, персональные рекомендации, бесплатная доставка и эксклюзивные релизы Jordan — бесплатно, вместе с аккаунтом.</p>
+  <div class="memberBtns">
+    <button class="primary" id="joinBtn">Присоединиться</button>
+    <button class="secondary" id="learnMoreBtn">Подробнее</button>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="footerGrid">
+    <div class="fCol footerBrand">
+      <div class="nikeLogo"><svg width="30" height="18" viewBox="0 0 109 64" style="vertical-align:-4px;margin-right:6px;" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M108.6 3.2c-4.7 2-9.2 3.9-13.9 5.8L10.3 42.6c-3.5 1.4-7 2.8-7.7 3-1.8.5-2.6-.6-2.1-2.2.3-1 1-2 2.4-3.4 2.6-2.7 5.7-4.7 21.8-14 13.4-7.8 30.6-16.5 41.6-21.1C74.9 1.4 82.6-.5 87.9.1c3.5.4 6.8 1.8 9.6 4 3.9 2.9 7.5 5.8 11.1-.9z"/></svg>NIKE</div>
+      <p>Наша миссия — вдохновлять и развивать каждого спортсмена мира. Если у тебя есть тело — ты уже спортсмен.</p>
+    </div>
+    <div class="fCol">
+      <h4>Рекомендуем</h4>
+      <a href="#collection">Air Jordan 1</a>
+      <a href="#collection">Dunk Low</a>
+      <a href="#collection">Air Force 1</a>
+      <a href="#collection">Air Max</a>
+    </div>
+    <div class="fCol">
+      <h4>Обувь и одежда</h4>
+      <a href="#collection">Все кроссовки</a>
+      <a href="#collection">Баскетбол</a>
+      <a href="#collection">Бег</a>
+      <a href="#order">Оформить заказ</a>
+    </div>
+    <div class="fCol">
+      <h4>Помощь</h4>
+      <a href="#order">Статус заказа</a>
+      <a href="#footer">Доставка и оплата</a>
+      <a href="#footer">Возврат товара</a>
+      <a href="#footer">Связаться с нами</a>
+    </div>
+    <div class="fCol">
+      <h4>Компания</h4>
+      <a href="https://about.nike.com/en" target="_blank" rel="noopener">О Nike, Inc.</a>
+      <a href="#hero">Главная</a>
+      <a href="#trending">В тренде</a>
+      <a href="#membership">Членство</a>
+    </div>
+  </div>
+  <div class="footerBottom">
+    <span>© 2026 Planet Store. Изображения кроссовок созданы на основе фото пользователя в ознакомительных целях.</span>
+    <div class="flinks">
+      <a href="#footer">Условия использования</a>
+      <a href="#footer">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<div class="modalOverlay" id="infoModalOverlay">
+  <div class="modalBox">
+    <button class="modalClose" id="modalCloseBtn">&times;</button>
+    <div class="modalImgWrap" id="modalImgWrap"></div>
+    <div class="modalContent">
+      <div class="modalTag" id="modalTag"></div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <div class="modalMeta" id="modalMeta"></div>
+      <a class="modalLink" id="modalLink" href="#" target="_blank" rel="noopener">Открыть на Nike.com ↗</a>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
